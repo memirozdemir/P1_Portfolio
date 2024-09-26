@@ -1,0 +1,30 @@
+﻿@model List<P1_Portfolio.Models.Skill>
+
+@{
+    ViewBag.Title = "SkillList";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Yeteneklerim Listesi</h2>
+<table class=" table table-bordered">
+<tr>
+    <th>ID</th>
+    <th>Baslik</th>
+    <th>Deger</th>
+    <th>Sil</th>
+    <th>Guncelle</th>
+</tr>
+
+    @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.skillID</td>
+                    <td>@item.title</td>
+                    <td>@item.value</td>
+                    <td><a href="/Skill/DeleteSkill/@item.skillID" class="btn btn-danger">Sil</a></td>
+                    <td><a href="#" class="btn btn-success">Guncelle</a></td>
+                </tr>
+            }
+
+</table>
+<a href="/Skill/CreateSkill/" class="btn btn-info">Yeni Yetenek Girisi</a>

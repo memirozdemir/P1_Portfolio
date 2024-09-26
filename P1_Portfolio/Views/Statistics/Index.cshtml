@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Istatistikler</h2>
+<div class="alert alert-info">Toplam Mesaj Sayisi: <b>@ViewBag.messageCount</b></div>
+<div class="alert alert-warning">Okunmus Mesaj Sayisi: <b>@ViewBag.messageCountIsReadByTrue</b></div>
+<div class="alert alert-danger">Okunmamis Mesaj Sayisi: <b>@ViewBag.messageCountIsReadByFalse</b></div>
+<div class="alert alert-success">Yetenek Sayisi: <b>@ViewBag.skillCount</b></div>
+<div class="alert alert-primary">Yeteneklerin Toplam Puani: <b>@ViewBag.totalSkillValue</b></div>
+<div class="alert alert-secondary">Yeteneklerin Ortalama Puani: <b>@ViewBag.avgSkillValue</b></div>
+<div class="alert alert-secondary" style="background-color:lightpink">Mevcut Email: <b>@ViewBag.getEmailFromProfile</b></div>
+<div class="alert alert-secondary" style="background-color:lightcyan">Son Eklenen Kategori: <b>@ViewBag.getLastCategoryName</b></div>

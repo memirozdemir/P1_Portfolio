@@ -1,0 +1,37 @@
+﻿@model P1_Portfolio.Models.Message
+
+@{
+    ViewBag.Title = "MessageDetails";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Mesaj Detayi</h2>
+
+<b>Gonderen Adi Soyadi: </b>@Html.DisplayFor(x => x.name)
+<br /><br />
+<b>Gonderen Mail Adresi: </b>@Html.DisplayFor(x => x.email)
+<br /><br />
+<b>Gonderen Telefon Numarasi: </b>@Html.DisplayFor(x => x.phoneNumber)
+<br /><br />
+<b>Mesaj Konusu: </b>@Html.DisplayFor(x => x.subject)
+<br /><br />
+<b>Mesaj Detaylari: </b>@Html.DisplayFor(x => x.messageDetail)
+<br /><br />
+<b>Tarih: </b>@Html.DisplayFor(x => x.sendDate)
+<br /><br />
+
+@*
+    Petshop Klinik Takip Uygulamasi
+    Havayolu Biletleme ve Ucus Takip Sistemi
+    Ev Insa Projesi
+    Kuafor - Berber Randevu Sistemi
+    Canli Mac Uygulamasi
+    Staj Takip Uygulamasi
+    Anlik Borsa Takipi
+    Netflix/DisneyPlus Klon
+    Yemeksepeti Benzeri
+    (Ilac Getir)
+    Blog
+    Forum
+    Tatil Sepeti
+*@
