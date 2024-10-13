@@ -198,6 +198,7 @@
     <Compile Include="Models\Testimonial.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Models\Work.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -560,6 +561,8 @@
     <Content Include="Views\Work\UpdateWork.cshtml" />
     <Content Include="Views\Work\AddWork.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\Profile\SocialMedia.cshtml" />
+    <Content Include="Views\Profile\EditSM.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

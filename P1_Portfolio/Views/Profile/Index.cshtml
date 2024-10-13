@@ -1,13 +1,16 @@
-﻿@model List<P1_Portfolio.Models.Profile>
+﻿@model P1_Portfolio.Models.ProfileSocialMediaViewModel
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Admin/Index.cshtml";
 }
-
+<!-- Icon Font Stylesheet -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
 <h2 class="mb-4">Profil Detayi</h2>
-@foreach (var x in Model)
+@foreach (var x in Model.Profiles)
 {
     <b>Title: </b>@x.title
     <br />
@@ -31,15 +34,28 @@
     <img class="img" src="@x.imageurl" width="300" />
     <br />
     <br />
-    <b>Location:</b>
-    <br />
+    
     <div class="col-12 wow fadeInUp" data-wow-delay="0.5s">
-    <div class="rounded">
-        <iframe src="@x.mapLocation" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <b>Location: </b>
+        <div class="rounded">
+            <iframe src="@x.mapLocation" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </div>
-</div>
-    <br />
-    <br />
     <br />
     <a href="/Profile/Edit/@x.profileID" class="btn btn-info">Edit profile</a>
 }
+<br />
+<br />
+<b>Social Medias:</b>
+<br />
+<br />
+
+<div class="social-media-buttons" style="display: flex; gap: 10px;">
+    @foreach (var y in Model.SocialMedias)
+    {
+        <a class="btn btn-light btn-md-square me-3" href="@y.URL"><i class="@y.Icon"></i></a>
+    }
+</div>
+<br />
+<a href="/Profile/SocialMedia/" class="btn btn-warning">Edit Social Medias</a>
+

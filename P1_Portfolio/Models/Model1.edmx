@@ -102,6 +102,7 @@
           </Key>
           <Property Name="socialMediaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="URL" Type="varchar" MaxLength="100" />
           <Property Name="Icon" Type="nvarchar" MaxLength="100" />
           <Property Name="Status" Type="bit" />
         </EntityType>
@@ -324,6 +325,7 @@
           <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Icon" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="Boolean" />
+          <Property Name="URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Admin">
           <Key>
@@ -466,6 +468,7 @@
           <EntitySetMapping Name="SocialMedia">
             <EntityTypeMapping TypeName="MyPortfolioDBModel.SocialMedia">
               <MappingFragment StoreEntitySet="SocialMedia">
+                <ScalarProperty Name="URL" ColumnName="URL" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Icon" ColumnName="Icon" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
