@@ -1,0 +1,26 @@
+﻿@model List<P1_Portfolio.Models.About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">About me details</h2>
+@foreach (var x in Model)
+{
+    <b>Title: </b>@x.title
+    <br />
+    <br />
+    <b>Detail: </b>@x.detail
+    <br />
+    <br />
+    <b>Picture: </b>
+    <img class="img" src="@x.imageurl" width="300" />
+    <br />
+    <br />
+    <br />
+    <a href="/About/Edit/@x.aboutID" class="btn btn-info">Edit about me page</a>
+}
+
+
+
+

@@ -1,0 +1,27 @@
+﻿@model P1_Portfolio.Models.Education
+
+@{
+    ViewBag.Title = "UpdateEducation";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Education info edit page</h2>
+
+<form method="post">
+    @Html.HiddenFor(x => x.educationID, new { @class = "form-control" })
+
+    <label>Title</label>
+    @Html.TextBoxFor(x => x.title, new { @class = "form-control" })
+    <br />
+    <label>Date</label>
+    @Html.TextBoxFor(x => x.educationDate, new { @class = "form-control" })
+    <br />
+    <label>Subtitle</label>
+    @Html.TextBoxFor(x => x.subtitle, new { @class = "form-control" })
+    <br />
+    <label>Description</label>
+    @Html.TextAreaFor(x => x.description, 6, 0, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Update education</button>
+</form>
+

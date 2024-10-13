@@ -6,25 +6,25 @@
 }
 
 
-<h2 class="mb-4">Deneyim Guncelleme Sayfasi</h2>
+<h2 class="mb-4">Edit experience page</h2>
 
 <form method="post">
     
     @Html.HiddenFor(x => x.experienceID, new { @class = "form-control" })
 
-    <label>Şirket Adı</label>
+    <label>Company Name</label>
     @Html.TextBoxFor(x => x.companyName, new { @class = "form-control" })
     <br />
-    <label>İş Tarihi</label>
+    <label>Work Date</label>
     @Html.TextBoxFor(x => x.workDate, new { @class = "form-control" })
     <br />
-    <label>Unvan</label>
+    <label>Title</label>
     @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
     <br />
-    <label>Açıklama</label>
+    <label>Description</label>
     @Html.TextAreaFor(x => x.Description, 6, 0, new { @class = "form-control" })
     <br />
-    <button class="btn btn-success">Deneyimi Guncelle</button>
+    <button class="btn btn-success">Update Experience</button>
 </form>
 
 

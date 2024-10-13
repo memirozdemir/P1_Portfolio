@@ -10,12 +10,12 @@
 
 <body>
     <div class="wrapper d-flex align-items-stretch">
-        @Html.Action("PartialSideBar","Admin")
+        @Html.Action("PartialSideBar", "Admin")
 
         <!-- Page Content  -->
         <div id="content" class="p-4 p-md-5">
 
-            @Html.Action("PartialNavBar","Admin")
+            @Html.Action("PartialNavBar", "Admin")
 
             @RenderBody()
         </div>
@@ -25,5 +25,6 @@
     <script src="/Content/sidebar-01/js/popper.js"></script>
     <script src="/Content/sidebar-01/js/bootstrap.min.js"></script>
     <script src="/Content/sidebar-01/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

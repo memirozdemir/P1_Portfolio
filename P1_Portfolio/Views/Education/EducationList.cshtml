@@ -1,8 +1,34 @@
-﻿
+﻿@model List<P1_Portfolio.Models.Education>
 @{
     ViewBag.Title = "EducationList";
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2>EducationList</h2>
 
+<h2 class="mb-4">Education List</h2>
+<table class=" table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Subtitle</th>
+        <th>Description</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.educationID</td>
+            <td>@item.title</td>
+            <td>@item.educationDate</td>
+            <td>@item.subtitle</td>
+            <td>@item.description</td>
+            <td><a href="/Education/DeleteEducation/@item.educationID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Education/UpdateEducation/@item.educationID" class="btn btn-success">Guncelle</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Education/CreateEducation/" class="btn btn-info">Add new education</a>

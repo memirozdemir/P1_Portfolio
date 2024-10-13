@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "AddWork";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Add new work</h2>
+
+<form method="post">
+    <label>Work Title</label>
+    <input type="text" name="title" class="form-control" />
+    <br />
+    <label>Work Description</label>
+    <input type="text" name="description" class="form-control" />
+    <br />
+    <label>Picture URL</label>
+    <input type="text" name="imageurl" class="form-control" />
+    <br />
+
+    <label>Github URL</label>
+    <input type="text" name="githuburl" class="form-control" />
+    <br />
+    <button class="btn btn-info">Add work</button>
+</form>
+
+

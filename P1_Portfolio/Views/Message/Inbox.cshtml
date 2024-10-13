@@ -4,18 +4,18 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">Gelen Mesajlar</h2>
+<h2 class="mb-4">Messages</h2>
 
-<table class="tabkle table-bordered">
+<table class="table table-bordered">
     <tr>
         <th>#</th>
-        <th>Gonderen</th>
-        <th>Konu</th>
-        <th>Tarih</th>
-        <th>Kategori</th>
-        <th>Durum</th>
-        <th>Sil</th>
-        <th>Mesaji ac</th>
+        <th>Sender</th>
+        <th>Subject</th>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Status</th>
+        <th>Delete</th>
+        <th>Open Message</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -27,15 +27,15 @@
             <td>@item.Category.categoryName</td>
             @if (item.isRead == false)
             {
-                <td><a href="/Message/MessageStatusChangeToTrue/@item.msgID" class="btn btn-outline-success">Okundu olarak isaretle</a></td>
+                <td><a href="/Message/MessageStatusChangeToTrue/@item.msgID" class="btn btn-outline-success">Mark by read</a></td>
             }
             else
             {
-        <td><a href="/Message/MessageStatusChangeToFalse/@item.msgID" class="btn btn-success">Okunmadi olarak isaretle</a></td>
+        <td><a href="/Message/MessageStatusChangeToFalse/@item.msgID" class="btn btn-success">Mark by unread</a></td>
             }
 
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
-            <td><a href="/Message/MessageDetails/@item.msgID" class="btn btn-secondary">Mesaji Ac</a></td>
+            <td><a href="/Message/DeleteMessage/@item.msgID" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Message/MessageDetails/@item.msgID" class="btn btn-secondary">Open Message</a></td>
         </tr>
     }
 </table>

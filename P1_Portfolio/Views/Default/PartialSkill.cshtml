@@ -1,0 +1,65 @@
+﻿@model List<P1_Portfolio.Models.Skill>
+
+
+<div class="container-fluid" id="pigraSkill">
+    <div class="container-fluid">
+        <div class="row g-0">
+            <div class="col-lg-3">
+                <div class="skills-header h-100 bg-dark pt-6 pe-6 pb-6">
+                    <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
+                        <p class="text-white sub-title">My Skills</p>
+                        <h1 class="display-6 text-white mb-0">Programming Languages and Technologies</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="skills-content h-100 pt-6 ps-6 pb-6">
+                    <div class="row g-4">
+                        @foreach (var x in Model)
+                        {
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="text-primary text-center mb-3"><span class="@x.icon"></span></div>
+                                    <div class="counter-counting d-flex justify-content-center">
+                                        <h4 class="display-6" data-toggle="counter-up">@x.value</h4>
+                                        <h4 class="display-6">%</h4>
+                                    </div>
+                                    <p class="mb-0">@x.title</p>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                    <br />
+                    <!-- Sayfalama Linkleri -->
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                            {
+                                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                    <a class="page-link" href="#" onclick="loadPage(@i); return false;">@i</a>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function loadPage(pageNumber) {
+        $.ajax({
+            url: '/Default/PartialSkill',  // Action URL
+            type: 'GET',
+            data: { page: pageNumber },  // Sayfa numarasını gönderiyoruz
+            success: function (result) {
+                $('#pigraSkill').html(result); // İçeriği güncelle
+            },
+            error: function () {
+                alert("An error occurred while loading data.");
+            }
+        });
+    }
+</script>
+

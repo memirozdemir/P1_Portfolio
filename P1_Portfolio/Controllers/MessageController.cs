@@ -36,5 +36,12 @@ namespace P1_Portfolio.Controllers
             context.SaveChanges();
             return RedirectToAction("Inbox");
         }
+        public ActionResult DeleteMessage(int id)
+        {
+            var value = context.Message.Find(id);
+            context.Message.Remove(value);
+            context.SaveChanges();
+            return RedirectToAction("Inbox");
+        }
     }
 }

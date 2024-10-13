@@ -1,0 +1,41 @@
+﻿@model P1_Portfolio.Models.Profile
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+
+<h2 class="mb-4">Profile edit page</h2>
+
+<form method="post">
+    @Html.HiddenFor(x => x.profileID, new { @class = "form-control" })
+
+    <label>Title</label>
+    @Html.TextBoxFor(x => x.title, new { @class = "form-control" })
+    <br />
+    <label>Description</label>
+    @Html.TextBoxFor(x => x.description, new { @class = "form-control" })
+    <br />
+    <label>Address</label>
+    @Html.TextBoxFor(x => x.address, new { @class = "form-control" })
+    <br />
+    <label>Email</label>
+    @Html.TextBoxFor(x => x.email, new { @class = "form-control" })
+    <br />
+    <label>Phone Number</label>
+    @Html.TextBoxFor(x => x.phoneNumber, new { @class = "form-control" })
+    <br />
+    <label>Github</label>
+    @Html.TextBoxFor(x => x.github, new { @class = "form-control" })
+    <br />
+    <label>Picture</label>
+    @Html.TextBoxFor(x => x.imageurl, new { @class = "form-control" })
+    <br />
+    <label>Location Info</label>
+    @Html.TextBoxFor(x => x.mapLocation, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Edit profile page</button>
+
+</form>
+

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using P1_Portfolio.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace P1_Portfolio.Controllers
 {
     public class AdminController : Controller
     {
+        MyPortfolioDBEntities context = new MyPortfolioDBEntities();
         // GET: Admin
         public ActionResult Index()
         {
@@ -19,6 +21,8 @@ namespace P1_Portfolio.Controllers
         }
         public PartialViewResult PartialSideBar()
         {
+            var img = context.About.Select(x=>x.imageurl).FirstOrDefault();
+            ViewBag.profileimg = img.ToString();
             return PartialView();
         }
         public PartialViewResult PartialNavBar()

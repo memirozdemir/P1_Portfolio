@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "CreateEducation";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Add new education</h2>
+
+<form method="post">
+    <label>Title</label>
+    <input type="text" name="title" class="form-control" />
+    <br />
+    <label>Date</label>
+    <input type="text" name="educationDate" class="form-control" />
+    <br />
+    <label>Subtitle</label>
+    <input type="text" name="subtitle" class="form-control" />
+    <br />
+    <label>Description</label>
+    <input type="text" name="description" class="form-control" />
+    <br />
+    <button class="btn btn-info">Create education</button>
+</form>
+

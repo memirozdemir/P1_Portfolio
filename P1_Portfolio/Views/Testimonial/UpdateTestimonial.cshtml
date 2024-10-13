@@ -1,0 +1,25 @@
+﻿@model P1_Portfolio.Models.Testimonial
+@{
+    ViewBag.Title = "UpdateTestimonial";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Edit Testimonial</h2>
+
+<form method="post">
+    @Html.HiddenFor(x => x.testimonialID, new { @class = "form-control" })
+    <label>Testimonial Name</label>
+    @Html.TextBoxFor(x => x.name, new { @class = "form-control" })
+    <br />
+    <label>Testimonial Title</label>
+    @Html.TextBoxFor(x => x.title, new { @class = "form-control" })
+    <br />
+    <label>Testimonial Comment</label>
+    @Html.TextBoxFor(x => x.comment, new { @class = "form-control" })
+    <br />
+    <label>Testimonial Photo URL</label>
+    @Html.TextBoxFor(x => x.imageUrl, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Update Testimonial</button>
+</form>
+

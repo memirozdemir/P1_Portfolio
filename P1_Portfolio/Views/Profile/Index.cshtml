@@ -1,0 +1,45 @@
+﻿@model List<P1_Portfolio.Models.Profile>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+
+<h2 class="mb-4">Profil Detayi</h2>
+@foreach (var x in Model)
+{
+    <b>Title: </b>@x.title
+    <br />
+    <br />
+    <b>Description: </b>@x.description
+    <br />
+    <br />
+    <b>Address: </b>@x.address
+    <br />
+    <br />
+    <b>Email: </b>@x.email
+    <br />
+    <br />
+    <b>Phone Number: </b>@x.phoneNumber
+    <br />
+    <br />
+    <b>Github: </b><a href="@x.github">Github</a>
+    <br />
+    <br />
+    <b>Picture: </b>
+    <img class="img" src="@x.imageurl" width="300" />
+    <br />
+    <br />
+    <b>Location:</b>
+    <br />
+    <div class="col-12 wow fadeInUp" data-wow-delay="0.5s">
+    <div class="rounded">
+        <iframe src="@x.mapLocation" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+    <br />
+    <br />
+    <br />
+    <a href="/Profile/Edit/@x.profileID" class="btn btn-info">Edit profile</a>
+}

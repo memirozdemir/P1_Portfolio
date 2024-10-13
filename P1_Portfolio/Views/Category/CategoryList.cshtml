@@ -1,31 +1,37 @@
-﻿
-@{
-    Layout = null;
-}
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<div class=" container">
+﻿@model List<P1_Portfolio.Models.Category>
 
-    <br />
-    <br />
-<table class=" table table-bordered">
+@{
+    ViewBag.Title = "CategoryList";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+
+
+<h2 class="mb-4">Categories</h2>
+
+<table class="table table-bordered">
     <tr>
-        <th>Kategori ID</th>
-        <th>Kategori Adi</th>
-        <th>Kategori Durumu</th>
-        <th>Detaylar</th>
+        <th>#</th>
+        <th>Category Name</th>
+        <th>Status</th>
+        <th>Delete</th>
     </tr>
-    <tr>
-        <td>1</td>
-        <td>Meyve,sebze</td>
-        <td>Aktif</td>
-        <td><button class=" btn btn-info">Detaylar</button></td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Icecek</td>
-        <td>Aktif</td>
-        <td><button class=" btn btn-info">Detaylar</button></td>
-    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.categoryID</td>
+            <td>@item.categoryName</td>
+            @if (item.categoryStatus == false)
+            {
+                <td><a href="/Category/CategoryStatusChangeToTrue/@item.categoryID" class="btn btn-outline-success">Activate</a></td>
+            }
+            else
+            {
+                <td><a href="/Category/CategoryStatusChangeToFalse/@item.categoryID" class="btn btn-success">Deactivate</a></td>
+            }
+
+            <td><a href="#" class="btn btn-danger">Delete</a></td>
+        </tr>
+    }
 </table>
 
-</div>

@@ -1,30 +1,75 @@
 ﻿@model List<P1_Portfolio.Models.Skill>
+@using Newtonsoft.Json
 
 @{
     ViewBag.Title = "SkillList";
     Layout = "~/Views/Admin/Index.cshtml";
 }
+<h2 class="mb-4">My Skills List</h2>
+<div style="max-height:365px; overflow-y:auto;">
+    <table class=" table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Value</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
 
-<h2 class="mb-4">Yeteneklerim Listesi</h2>
-<table class=" table table-bordered">
-<tr>
-    <th>ID</th>
-    <th>Baslik</th>
-    <th>Deger</th>
-    <th>Sil</th>
-    <th>Guncelle</th>
-</tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.skillID</td>
+                <td>@item.title</td>
+                <td>@item.value</td>
+                <td><a href="/Skill/DeleteSkill/@item.skillID" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Skill/UpdateSkill/@item.skillID" class="btn btn-success">Edit</a></td>
+            </tr>
+        }
 
-    @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.skillID</td>
-                    <td>@item.title</td>
-                    <td>@item.value</td>
-                    <td><a href="/Skill/DeleteSkill/@item.skillID" class="btn btn-danger">Sil</a></td>
-                    <td><a href="#" class="btn btn-success">Guncelle</a></td>
-                </tr>
+    </table>
+</div>
+<br />
+<!--Chart icin div ve canvas-->
+<div class="chart-container">
+    <canvas id="skillsChart" width="400" height="200"></canvas>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Modeldeki verileri json formatına çevirme -->
+<script>
+    var skills = @Html.Raw(JsonConvert.SerializeObject(Model.Select(x => new { x.title, x.value })));
+
+    var labels = skills.map(function(skill) {
+        return skill.title;
+    });
+
+    var dataValues = skills.map(function(skill) {
+        return skill.value;
+    });
+
+    var ctx = document.getElementById('skillsChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Yetenek Değerleri',
+                data: dataValues,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
             }
-
-</table>
-<a href="/Skill/CreateSkill/" class="btn btn-info">Yeni Yetenek Girisi</a>
+        }
+    });
+</script>
+<a href="/Skill/CreateSkill/" class="btn btn-info">Add new skill</a>

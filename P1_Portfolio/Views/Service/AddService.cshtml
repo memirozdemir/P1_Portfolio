@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "AddService";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Add new service page</h2>
+
+<form method="post">
+    <label>Service Title</label>
+    <input type="text" name="title" class="form-control" />
+    <br />
+    <label>Service Description</label>
+    <input type="text" name="description" class="form-control" />
+    <br />
+    <label>Service Icon</label>
+    <input type="text" name="icon" class="form-control" />
+    <br />
+    <button class="btn btn-info">Create new service</button>
+</form>
+

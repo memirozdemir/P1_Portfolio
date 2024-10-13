@@ -1,0 +1,24 @@
+﻿@model P1_Portfolio.Models.Service
+@{
+    ViewBag.Title = "UpdateService";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Service edit page</h2>
+
+<form method="post">
+    @Html.HiddenFor(x => x.serviceID, new { @class = "form-control" })
+
+    <label>Title</label>
+    @Html.TextBoxFor(x => x.title, new { @class = "form-control" })
+    <br />
+    <label>Description</label>
+    @Html.TextBoxFor(x => x.description, new { @class = "form-control" })
+    <br />
+    <label>Icon</label>
+    @Html.TextBoxFor(x => x.icon, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-success">Update service</button>
+</form>
+

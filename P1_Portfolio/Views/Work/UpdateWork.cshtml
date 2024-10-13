@@ -1,0 +1,25 @@
+﻿@model P1_Portfolio.Models.Work
+@{
+    ViewBag.Title = "UpdateWork";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Update Work</h2>
+
+<form method="post">
+    @Html.HiddenFor(x => x.workID, new { @class = "form-control" })
+    <label>Work Title</label>
+    @Html.TextBoxFor(x => x.title, new { @class = "form-control" })
+    <br />
+    <label>Work Description</label>
+    @Html.TextBoxFor(x => x.description, new { @class = "form-control" })
+    <br />
+    <label>Work Image URl</label>
+    @Html.TextBoxFor(x => x.imageurl, new { @class = "form-control" })
+    <br />
+    <label>Github URL</label>
+    @Html.TextBoxFor(x => x.githuburl, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Update Work</button>
+</form>
+
